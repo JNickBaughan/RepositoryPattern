@@ -6,17 +6,17 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class EntryReceiptController : ControllerBase
+    public class ReceiptController : ControllerBase
     {
 
         private readonly IUnitOfWork _unitOfWork;
 
-        public EntryReceiptController(IUnitOfWork unitOfWork)
+        public ReceiptController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        [HttpGet]
+        [HttpGet(Name = "Receipts")]
         public IEnumerable<EntryReceipt> Get()
         {
             _unitOfWork.Receipts.AddAsync(new EntryReceipt
